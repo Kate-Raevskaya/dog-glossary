@@ -21,10 +21,13 @@ async function getRandomImage() {
 async function showRandomImage() {
     try {
         let imageUrl = await getRandomImage();
+        let imageContainer = document.createElement('div');
+        imageContainer.classList.add('col-12', 'col-md-7', 'h-auto', 'm-auto');
         let image = document.createElement('img');
         image.setAttribute('src', imageUrl);
-        image.classList.add('border', 'border-3', 'border-success', 'my-5', 'img-fluid', 'h-100');
-        container.replaceChildren(image);
+        image.classList.add('border', 'border-3', 'border-success', 'my-5', 'img-fluid', 'w-100');
+        imageContainer.appendChild(image);
+        container.replaceChildren(imageContainer);
     } catch (error) {
         console.log(error)
     }
@@ -45,15 +48,15 @@ async function getBreedImage() {
 async function showBreedImage() {
     try {
         let imageUrl = await getBreedImage();
+        let imageContainer = document.createElement('div');
+        imageContainer.classList.add('col-12', 'col-md-7', 'h-auto', 'm-auto');
         let image = document.createElement('img');
         image.setAttribute('src', imageUrl);
-        image.classList.add('border', 'border-3', 'border-success', 'my-5');
-        container.replaceChildren(image);
+        image.classList.add('border', 'border-3', 'border-success', 'my-5', 'img-fluid', 'w-100');
+        imageContainer.appendChild(image);
+        container.replaceChildren(imageContainer);
     } catch (error) {
-        console.log(error);
-        let message = document.createElement('p');
-        message.innerText = "Breed not found!";
-        container.replaceChildren(message);
+        showError('Breed not found!');
     }
 }
 
@@ -68,7 +71,9 @@ async function getListOfSubBreed() {
 }
 
 function showError(error) {
-    let message = document.createElement('p');
+    let message = document.createElement('div');
+    message.classList.add('col-7', 'alert', 'alert-danger', 'm-auto');
+    message.setAttribute('role', 'alert');
     message.innerText = error;
     container.replaceChildren(message);
 }
@@ -102,9 +107,11 @@ async function showAllBreeds() {
     try {
         let listAllBreeds = await getListOfSubBreed();
         let listOl = document.createElement('ol');
+        listOl.classList.add('list-group', 'list-group-numbered', 'col-4', 'm-auto');
         for (let breed in listAllBreeds) {
             let liBreed = document.createElement('li');
             liBreed.innerText = breed;
+            liBreed.classList.add('list-group-item', 'list-group-item-success');
             if (listAllBreeds[breed].length !== 0) {
                 let listUl = document.createElement('ul');
                 listAllBreeds[breed].forEach(subBreed => {
