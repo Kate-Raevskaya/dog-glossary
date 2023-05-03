@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dog Glossary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid d-flex flex-column align-items-center">
+        <h1 class="pt-3 text-success">Dog Glossary</h1>
+        <div class="row gy-2 py-3">
+            <button id="button-random-dog" class="col-11 col-md mx-auto btn btn-success">Show Random Dog</button>
+            <div class="col-12 col-md-4 mx-auto">
+                <input type="text" id="input-breed" class="form-control border border-3 border-success h-100" placeholder="Enter a breed">
+            </div>
+            <button id="button-show-breed" class="col-5 col-md mx-md-2 mx-auto btn btn-success">Show Breed</button>
+            <button id="button-show-sub-breed" class="col-5 col-md mx-md-2 mx-auto btn btn-success">Show Sub-Breed</button>
+            <button id="button-show-all" class="col-11 col-md mx-auto btn btn-success">Show All Breeds</button>
+        </div>
+        <div id="content" class="container d-flex justify-content-center bg-success-subtle"></div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
